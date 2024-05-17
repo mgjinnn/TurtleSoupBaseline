@@ -7,8 +7,8 @@ A baseline(chatglm3-6b) prediction on the test_a dataset
 import pandas as pd
 
 from transformers import AutoTokenizer, AutoModel
-tokenizer = AutoTokenizer.from_pretrained("../chatglm3-6b", trust_remote_code=True)
-model = AutoModel.from_pretrained("../chatglm3-6b", trust_remote_code=True, device='cuda')
+tokenizer = AutoTokenizer.from_pretrained("/home/wenhy/chatglm3-6b", trust_remote_code=True)
+model = AutoModel.from_pretrained("/home/wenhy/chatglm3-6b", trust_remote_code=True, device='cuda:1')
 model = model.eval()
 
 
