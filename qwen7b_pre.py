@@ -11,12 +11,12 @@ device = "cuda" # the device to load the model onto
 
 
 model = AutoModelForCausalLM.from_pretrained(
-    "./root/.cache/modelscope/hub/qwen/",
+    "/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat",
     torch_dtype="auto",
     device_map="auto"
 )
 
-tokenizer = AutoTokenizer.from_pretrained("./root/.cache/modelscope/hub/qwen/")
+tokenizer = AutoTokenizer.from_pretrained("/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat")
 
 def prompt1(x,y,z):
     #prompt = "Give me a short introduction to large language model."
