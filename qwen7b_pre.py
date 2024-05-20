@@ -1,7 +1,10 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 import os 
+
 os.environ['cuda_visible_devices'] = '1'
+
+os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 import pandas as pd
 
 
