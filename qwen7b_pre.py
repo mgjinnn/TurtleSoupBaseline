@@ -2,15 +2,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 import os 
 
-os.environ['cuda_visible_devices'] = '1'
-
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 import pandas as pd
 
 
 test_a = pd.read_csv('test_a.csv',encoding='gbk')
 
-device = "cuda" # the device to load the model onto
+device = "cuda:1" # the device to load the model onto
 
 
 model = AutoModelForCausalLM.from_pretrained(
