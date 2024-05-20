@@ -30,4 +30,4 @@ def func(x,y,z):
 test_a['answer'] = test_a.apply(lambda x:func(x.puzzle,x.truth,x.text),axis=1)
 
 test_a_baseline_pre = test_a
-test_a_baseline_pre.to_csv('test_a_baseline_glm6b.csv',index=False)
+test_a_baseline_pre.to_csv('test_a_baseline_glm6b_p0.csv',index=False)
