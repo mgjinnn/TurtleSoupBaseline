@@ -12,7 +12,7 @@ model = AutoModelForCausalLM.from_pretrained(
 tokenizer = AutoTokenizer.from_pretrained("/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat")
 
 def prompt1(x,y,z):
-    prompt = "Give me a short introduction to large language model."
+    #prompt = "Give me a short introduction to large language model."
     messages = [
         {"role": "system", "content": f'''你是海龟汤出题人，我们来玩一个叫做海龟汤的游戏。海龟汤是一种情景猜谜的推理游戏。其玩法是:出题者提出一个简单又难以理解的事件，
     玩家可以提出任何封闭式问题以试图缩小范围并找出事件背后真正的原因，封闭式问题指的是问题答案只能为："是。"或者"不是。"。如果玩家的问题不是一个封闭式问题，请回答："问法错误。"。
@@ -25,7 +25,7 @@ def prompt1(x,y,z):
         tokenize=False,
         add_generation_prompt=True
     )
-    model_inputs = tokenizer([text], return_tensors="pt").to(device)
+    model_inputs = tokenizer([text], return_tensors="pt").to(device1)
 
     generated_ids = model.generate(
         model_inputs.input_ids,
