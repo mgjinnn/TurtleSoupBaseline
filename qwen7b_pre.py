@@ -1,13 +1,12 @@
 from modelscope import AutoModelForCausalLM, AutoTokenizer
 import pandas as pd
 
-device = "cuda:1" # the device to load the model onto
+device1 = "cuda:1" # the device to load the model onto
 
 test_a = pd.read_csv('test_a.csv',encoding='gbk')
 
 model = AutoModelForCausalLM.from_pretrained(
-    "/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat",
-    device_map="auto"
+    "/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat",device = device1
 )
 tokenizer = AutoTokenizer.from_pretrained("/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat")
 
