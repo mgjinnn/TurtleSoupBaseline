@@ -1,14 +1,19 @@
-from modelscope import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
 import os 
 os.environ['cuda_visible_devices'] = '1'
 import pandas as pd
 
-device1 = "cuda" # the device to load the model onto
 
 test_a = pd.read_csv('test_a.csv',encoding='gbk')
 
+device = "cuda" # the device to load the model onto
+
+
 model = AutoModelForCausalLM.from_pretrained(
-    "/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat",device_map='auto'
+    "/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat",
+    torch_dtype="auto",
+    device_map="auto"
 )
 
 tokenizer = AutoTokenizer.from_pretrained("/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat")
@@ -27,7 +32,7 @@ def prompt1(x,y,z):
         tokenize=False,
         add_generation_prompt=True
     )
-    model_inputs = tokenizer([text], return_tensors="pt").to(device1)
+    model_inputs = tokenizer([text], return_tensors="pt").to(device)
 
     generated_ids = model.generate(
         model_inputs.input_ids,
