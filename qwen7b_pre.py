@@ -13,7 +13,7 @@ device = "cuda:1" # the device to load the model onto
 
 model = AutoModelForCausalLM.from_pretrained(
     "/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat"
-).to(device)
+).half().to(device)
 
 tokenizer = AutoTokenizer.from_pretrained("/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat")
 
