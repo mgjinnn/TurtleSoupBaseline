@@ -6,8 +6,8 @@ os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 import pandas as pd
 
 
-test_a = pd.read_csv('test_a.csv',encoding='gbk')
-
+# test_a = pd.read_csv('test_a.csv',encoding='gbk')
+test_a = pd.read_csv('test_b.csv',encoding='gbk')
 device = "cuda:1" # the device to load the model onto
 
 
@@ -48,4 +48,4 @@ def prompt1(x,y,z):
 test_a['answer'] = test_a.apply(lambda x:prompt1(x.puzzle,x.truth,x.text),axis=1)
 
 test_a_baseline_pre = test_a
-test_a_baseline_pre.to_csv('test_a_baseline_qwen1.5_p0.csv',index=False)
+test_a_baseline_pre.to_csv('test_b_baseline_qwen1.5_p0.csv',index=False)
