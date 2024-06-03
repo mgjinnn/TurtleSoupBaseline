@@ -1,8 +1,5 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-import os 
-
-os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 import pandas as pd
 
 
@@ -12,10 +9,10 @@ device = "cuda:1" # the device to load the model onto
 
 
 model = AutoModelForCausalLM.from_pretrained(
-    "/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat"
+    "/your model path/Qwen1___5-7B-Chat"
 ).half().to(device)
 
-tokenizer = AutoTokenizer.from_pretrained("/home/wenhy/Qwen1.5-7b-chat/qwen/Qwen1___5-7B-Chat")
+tokenizer = AutoTokenizer.from_pretrained("/your model path/Qwen1___5-7B-Chat")
 
 def prompt1(x,y,z):
     #prompt = "Give me a short introduction to large language model."
@@ -48,4 +45,4 @@ def prompt1(x,y,z):
 test_a['answer'] = test_a.apply(lambda x:prompt1(x.puzzle,x.truth,x.text),axis=1)
 
 test_a_baseline_pre = test_a
-test_a_baseline_pre.to_csv('test_b_baseline_qwen1.5_p0.csv',index=False)
+test_a_baseline_pre.to_csv('your_predict_result.csv',index=False)
