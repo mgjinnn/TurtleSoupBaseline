@@ -15,9 +15,11 @@ def trans(ans):
             res = "回答正确。"
         if "不重要。" in ans:
             res = "不重要。"
+        if "不是。" in ans:
+            res = "不是。"
     return res
-data['answer_trans'] = data['answer'].apply(lambda x: trans(x))
+data['answer'] = data['answer'].apply(lambda x: trans(x))
 
-print(f"acc is :{len(data[data['label']==data['answer_trans']])/len(data)}")
+print(f"acc is :{len(data[data['label']==data['answer']])/len(data)}")
 
 data.to_csv('./final_predict_result.csv')
