@@ -3,16 +3,16 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import pandas as pd
 
 
-# test_a = pd.read_csv('test_a.csv',encoding='gbk')
-test_a = pd.read_csv('test_b.csv',encoding='gbk')
+test_a = pd.read_csv('test_a.csv',encoding='utf8')
+
 device = "cuda:1" # the device to load the model onto
 
 
 model = AutoModelForCausalLM.from_pretrained(
-    "/your model path/Qwen1___5-7B-Chat"
+    "/your model path/Qwen1.5-7B-Chat"
 ).half().to(device)
 
-tokenizer = AutoTokenizer.from_pretrained("/your model path/Qwen1___5-7B-Chat")
+tokenizer = AutoTokenizer.from_pretrained("/your model path/Qwen1.5-7B-Chat")
 
 def prompt1(x,y,z):
     #prompt = "Give me a short introduction to large language model."
