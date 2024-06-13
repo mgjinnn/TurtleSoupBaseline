@@ -19,15 +19,15 @@ def trans(ans):
     res = ans
     if len(ans)<25:
         if "是的。" in ans:
-            res = "是。"
+            res = "是"
         if "问法错误。" in ans:
-            res = "问法错误。"
+            res = "问法错误"
         if "回答正确" in ans:
-            res = "回答正确。"
+            res = "回答正确"
         if "不重要。" in ans:
-            res = "不重要。"
+            res = "不重要"
         if "不是。" in ans:
-            res = "不是。"
+            res = "不是"
     return res
 data['answer'] = data['answer'].apply(lambda x: trans(x))
 

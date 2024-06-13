@@ -1,12 +1,12 @@
 from openai import OpenAI
-base_url = "http://10.200.16.79:8000/v1/"
+base_url = "http://localhost:8000/v1/"
 client = OpenAI(api_key="EMPTY", base_url=base_url)
 import time
 import pandas as pd
 
 
-# test_a = pd.read_csv('test_a.csv',encoding='gbk')
-test_a = pd.read_csv('test_b.csv',encoding='gbk')
+test_a = pd.read_csv('test_a.csv',encoding='gbk')
+
 
 def simple_chat(sys_content,usr_content,use_stream=False):
     messages = [
