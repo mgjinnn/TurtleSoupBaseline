@@ -238,7 +238,7 @@ def process_messages(messages, tools=None, tool_choice="none"):
                     "tools": tools
                 }
             )
-        msg_has_sys = True
+            msg_has_sys = True
 
     # add to metadata
     if isinstance(tool_choice, dict) and tools:
